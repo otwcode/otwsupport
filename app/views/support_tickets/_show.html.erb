@@ -1,0 +1,5 @@
+<%= render :partial => "blurb", :locals => { :ticket => @ticket }  %>
+
+<% @details.each do |detail| %>
+  <%= render :partial => "details/blurb", :locals => { :detail => detail }  %>
+<% end %>

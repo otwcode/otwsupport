@@ -1,0 +1,14 @@
+<% unless params[:rfc] %>
+  <% if params[:by_vote] %>
+    <%= link_to "Sort by position", faqs_path(params.merge :by_vote => false) %>
+  <% else %>
+    <%= link_to "Sort by vote count", faqs_path(params.merge :by_vote => true) %>
+  <% end %>
+<% end %>
+
+<% #FIXME index is a hack for cucumber tests %>
+<% @faqs.each_with_index do |faq, i| %>
+  <h1 id=<%=i%>><%= link_to faq.sanitized_summary, faq %>
+    (<% if faq.rfc? %>draft<% else %><%= faq.vote_count %> votes<% end %>)
+  </h1>
+<% end %>

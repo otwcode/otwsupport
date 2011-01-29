@@ -1,0 +1,33 @@
+<% if current_user.try(:support_volunteer?) %>
+  <p><%= link_to "Edit", edit_faq_path(@faq) %></p>
+<% end %>
+
+<h1><%= @faq.sanitized_summary %> (draft)</h1>
+
+<blockquote><%= @faq.sanitized_content %></blockquote>
+
+<% @details.each do |detail| %>
+  <%= render :partial => "details/blurb", :locals => { :detail => detail }  %>
+<% end %>
+
+<% if current_user || session[:authentication_code] %>
+  <%= form_for(@faq) do %>
+    <% if current_user.try(:support_admin?) %>
+      <p><%= submit_tag "Post" %></p>
+    <% end %>
+    <% if @faq.watched?(session[:authentication_code]) %>
+      <%= submit_tag "Don't watch this FAQ" %>
+    <% else %>
+      <%= submit_tag "Watch this FAQ"%>
+    <% end %>
+    <br \>
+    <% if current_user.try(:support_volunteer?) %>
+      <p><%= radio_button_tag :response, 'official', true %><%= label_tag :response_official, 'official' %>
+      <%= radio_button_tag :response, 'unofficial', false %><%= label_tag :response_unofficial, 'unofficial' %>
+      <%= radio_button_tag :response, 'private', false %><%= label_tag :response_private, 'private (and official)' %>
+    </p>
+    <% end %>
+    <%= text_area_tag :content, nil, :size => "72x10" %>
+    <p><%= submit_tag "Add details" %></p>
+  <% end %>
+<% end %>

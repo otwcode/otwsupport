@@ -1,0 +1,67 @@
+<% if current_user.support_admin? %>
+  <%= link_to "Edit", edit_code_ticket_path(@ticket) %>
+  <p>url: <%= @ticket.url %></p>
+  <p>browser: <%= @ticket.browser %></p>
+<% end %>
+
+<%= render "show" %>
+
+<% if @ticket.support_tickets.count > 0 %>
+  <h2>Related Support tickets</h2>
+  <% @ticket.support_tickets.each do |support_ticket| %>
+    <%= link_to support_ticket.id, support_ticket %>
+  <% end %>
+<% end %>
+
+<%= form_for(@ticket) do %>
+  <% if @add_details %>
+    <%= text_area_tag :content, nil, :size => "72x10" %>
+    <p><%= radio_button_tag :response, 'official', true %><%= label_tag :response_official, 'official' %>
+    <% if @ticket.unowned? %>
+      <%= radio_button_tag :response, 'unofficial', false %><%= label_tag :response_unofficial, 'unofficial' %>
+    <% end %>
+      <%= radio_button_tag :response, 'private', false %><%= label_tag :response_private, 'private (and official)' %>
+    </p>
+    <p><%= submit_tag "Add details" %></p>
+  <% end %>
+  <p>
+    <% if !@ticket.closed? %>
+      <% unless @ticket.voted? %>
+        <%= submit_tag "Vote up" %>
+      <% end %>
+      <% if @ticket.watched? %>
+        <%= submit_tag "Don't watch this ticket" %>
+      <% else %>
+        <%= submit_tag "Watch this ticket"%>
+      <% end %>
+    <% end %>
+    <% if @ticket.current_state.events.include?(:reopen) %>
+      <%= label_tag :reason %>
+      <%= text_field_tag :reason, nil, :size => 100 %>
+      <%= submit_tag "Reopen" %>
+    <% elsif @ticket.current_state.events.include?(:reject) && current_user.support_admin? %>
+      <%= label_tag :reason %>
+      <%= text_field_tag :reason, nil, :size => 100 %>
+      <%= submit_tag "Reject" %>
+    <% end %>
+    <% if @ticket.current_state.events.include?(:take) %>
+      <%= submit_tag "Take" %>
+    <% end %>
+    <% if @ticket.stealable? %>
+      <%= submit_tag "Steal" %>
+    <% end %>
+    <% if @ticket.current_state.events.include?(:commit) %>
+      <%= select_tag :code_commit_id, "<option></option>".html_safe +
+                     options_from_collection_for_select(CodeCommit.unmatched, "id", "summary") %>
+      <%= submit_tag "Commit" %>
+    <% end %>
+    <% if @ticket.current_state.events.include?(:duplicate) %>
+      <%= select_tag :code_ticket_id, "<option></option>".html_safe +
+                     options_from_collection_for_select(CodeTicket.not_closed, "id", "summary") %>
+      <%= submit_tag "Dupe" %>
+    <% end %>
+    <% if @ticket.current_state.events.include?(:verify) %>
+      <%= submit_tag "Verify" %>
+    <% end %>
+  </p>
+<% end %>

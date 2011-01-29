@@ -1,0 +1,18 @@
+<%= form_for(@ticket) do |t| %>
+  <%= t.hidden_field :url, :value => session[:return_to] %>
+  <p><% if current_user %>
+    <%= t.hidden_field :user_id, :value => current_user.id %> <%= t.check_box :anonymous %> <%= t.label :anonymous %>
+  <% else %>
+    <%= t.text_field :email, :size => 30 %> <%= t.label :email, "Email (mandatory. not visible)" %>
+  <% end %></p>
+  <p><%= t.check_box :turn_off_notifications %> <%= t.label :turn_off_notifications, "Don't send me email notifications about this ticket" %></p>
+  <p><%= t.check_box :private %> <%= t.label :private, "Private. (Ticket will only be visible to owner and official Support volunteers. This cannot be undone.)"%></p>
+  <p><%= t.text_field :summary, :size => 100 %> <%= t.label :summary %></p>
+  <% if @add_details %>
+    <%= text_area_tag :content, nil, :size => "72x10" %>
+    <% if current_user.try(:support_volunteer?) %>
+      <p><%= check_box_tag :unofficial, true, true %> <%= label_tag :unofficial, "Unofficial details?" %></p>
+    <% end %>
+  <% end %>
+  <p><%= t.submit %></p>
+<% end %>

@@ -1,0 +1,14 @@
+<% if current_user.try(:support_volunteer?) %>
+  <% if current_user.support_admin? || !@release_note.posted? %>
+    <%= link_to "Edit", edit_release_note_path(@release_note) %>
+  <% end %>
+<% end %>
+
+<%= render :partial => "blurb", :locals => { :note => @release_note }  %>
+
+<% @release_note.code_tickets.each do |ticket| %>
+  <h2><%= link_to ticket.name, ticket %></h2>
+  <%= render :partial => "code_tickets/blurb", :locals => { :ticket => ticket }  %>
+<% end %>
+
+

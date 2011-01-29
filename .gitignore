@@ -1,0 +1,12 @@
+pkg/*
+*.gem
+.bundle
+log/*.log
+tmp/**/*
+.DS_Store
+config/initializers/akismetor.rb
+config/initializers/email.rb
+config/database.yml
+pickle-email-*.html
+capybara-*.html
+vendor/bundle

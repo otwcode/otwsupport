@@ -1,0 +1,30 @@
+<%= form_tag '/code_tickets', :method => :get do %>
+  <%= label_tag :status %>
+  <%= select_tag :status,
+                 options_for_select([:open, :all] + CodeTicket.workflow_spec.state_names, params[:status]) %>
+  <%= label_tag :owned_by_support_identity %>
+  <%= select_tag :owned_by_support_identity, "<option></option>".html_safe +
+                 options_from_collection_for_select(SupportIdentity.official.all, "name", "name", params[:owned_by_support_identity]) %>
+  <%= label_tag :user, "Opened by" %>
+  <%= text_field_tag :user, params[:user] %>
+  <%= label_tag :comments_by_support_identity, "With comments by"  %>
+  <%= text_field_tag :comments_by_support_identity, params[:comments_by_support_identity] %>
+  <%= label_tag :closed_in_release %>
+  <%= select_tag :closed_in_release, "<option></option>".html_safe +
+                 options_from_collection_for_select(ReleaseNote.posted.all, "id", "release", params[:closed_in_release]) %>
+  <%= label_tag :sort_by %>
+  <%= select_tag :sort_by,
+           options_for_select(["newest", "highest vote", "recently updated", "least recently updated", "oldest first"], params[:sort_by]) %>
+  <%= submit_tag "Filter" %>
+  <%= link_to "Clear Filters", code_tickets_path %>
+<% end %>
+
+<p><%= @tickets.size %> Found</p>
+
+<% #FIXME index is a hack for cucumber tests %>
+<% @tickets.each_with_index do |ticket, i| %>
+  <h1 id=<%=i%>><%= link_to ticket.name, ticket %></h1>
+  <%= render :partial => "blurb", :locals => { :ticket => ticket }  %>
+<% end %>
+
+

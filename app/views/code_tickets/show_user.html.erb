@@ -1,0 +1,20 @@
+<%= render "show" %>
+
+<%= form_for(@ticket) do %>
+  <% if @add_details %>
+    <%= text_area_tag :content, nil, :size => "72x10" %>
+    <p><%= submit_tag "Add details" %></p>
+  <% end %>
+  <p>
+    <% if !@ticket.closed? %>
+      <% unless @ticket.voted? %>
+        <%= submit_tag "Vote up" %>
+      <% end %>
+      <% if @ticket.watched? %>
+        <%= submit_tag "Don't watch this ticket" %>
+      <% else %>
+        <%= submit_tag "Watch this ticket"%>
+      <% end %>
+    <% end %>
+  </p>
+<% end %>

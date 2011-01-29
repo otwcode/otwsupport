@@ -1,0 +1,89 @@
+--- 
+user_1: 
+  activated_at: 
+  created_at: 2011-01-25 02:41:16 Z
+  crypted_password: 7d41056db3dfb5574f1ebef03d93ec23f8c238b2127e5cb72d8fb5d16b48bc767b5c575d3fa0824fd41b786ebfecd485c4475f859917d401597b246fcdd39373
+  email: newbie@ao3.org
+  id: 1
+  login: newbie
+  persistence_token: 42d860576b4c8d40ec4cd5828af7a39ced09ba1ca42c8ab82733b130e3ed95ce642f21643ebf5b56dbeb0d6159a3f47f4932e33f0871bbde7a7f61c88ccd7549
+  salt: KDeZUZOEiBCgPO2ep-Rv
+  support_identity_id: 
+  updated_at: 2011-01-25 02:41:16 Z
+user_2: 
+  activated_at: 
+  created_at: 2011-01-25 02:41:16 Z
+  crypted_password: f01c2387b873c33d117e6f59b6d8533b8ec3e961e15294821c62da0e1d9f50c07cdeec8bf2f5127ac590eed32b07cdee75214d27d2bd38f29dfb766e9d9b1ef6
+  email: dean@ao3.org
+  id: 2
+  login: dean
+  persistence_token: f1021d4b3750847d1df2d7f2f77ce5ce961e71ec22ef94fc02c725ebe6faf310876dd7711882db1459dfa4d27e6e53208a24e077d15efc36e1639d569908d2bf
+  salt: QfclSKl5V_U2ssKT1-Go
+  support_identity_id: 7
+  updated_at: 2011-01-25 02:41:21 Z
+user_3: 
+  activated_at: 
+  created_at: 2011-01-25 02:41:16 Z
+  crypted_password: 673080d8f8b10b51dc97ad6d9970b32b75c23dac9a20c3ef8ac0449595c5a8a316ce35696b67d59fb751a72ee1880ee19f13eeb2efeab6b9bb3bb94346a0c8a5
+  email: john@ao3.org
+  id: 3
+  login: john
+  persistence_token: 9bc5694c1be4992d66f8c9dd83015e8c78bd9eaae2ace044cfcd946a88405ed2ab3aa57dd35cc1640d281e039b9c62620d5b64706eabd36169515924a5c033ea
+  salt: 5vhcmkRj_7s14PMorunP
+  support_identity_id: 5
+  updated_at: 2011-01-25 02:41:17 Z
+user_4: 
+  activated_at: 
+  created_at: 2011-01-25 02:41:16 Z
+  crypted_password: 7ac7b2a03ae39f35f5addb3b8632714160e5aa9a658242ce773c459f76024b2520cf8a454be87918beca4e0985bcf2da1578f9c9481d713934dd6c4aaa2ba3c2
+  email: jim@ao3.org
+  id: 4
+  login: jim
+  persistence_token: 869f33dddef4c9d9eb3a778b6049a41329bf15ab968512942a3818190e40789c12a71f5382a797f9ed84bca9613be0e370f4a3674e53b3453c9a8651a984d608
+  salt: uHQ5idq5Z_EX-HjDBhiu
+  support_identity_id: 6
+  updated_at: 2011-01-25 02:41:18 Z
+user_5: 
+  activated_at: 
+  created_at: 2011-01-25 02:41:16 Z
+  crypted_password: c887f5d6ccc2ae130d0fc4dc2150752e6f6552017dd1f2d142bb0e47143a8e2d5d48b6b995f63b4c33421545fe6e169cb831d3c288b1ed616a652dc34f05fb45
+  email: sam@ao3.org
+  id: 5
+  login: sam
+  persistence_token: 4d168eb17b277d83fde725634ccfe56cb8de4812a264d8154327fb75171fc2efcf2c915dbd2a777a95857dcf476fa59447322c287ffa80ff2af1419c85ba2c4e
+  salt: GP-o5CQSzgcMczjXsuN5
+  support_identity_id: 1
+  updated_at: 2011-01-25 02:41:16 Z
+user_6: 
+  activated_at: 
+  created_at: 2011-01-25 02:41:16 Z
+  crypted_password: 5b7e031a3a53166dfea476cc71f13e120ec70d0450a2ae6d8a13564d51a5af4a090c66a8dd540fde97ce7c44b48a6176f8d5554de74597c41e15410437d9f4e6
+  email: rodney@ao3.org
+  id: 6
+  login: rodney
+  persistence_token: 4ed772ede40f13b8f35e198879aced0a71474ae799deb1f5953f9c3fc5409033b8c3bdbb2242db8f234bc100a5233bb9408b8cb157354f06cdd08e80885de524
+  salt: ay7Ilf_CDcqRjT4A4ttf
+  support_identity_id: 2
+  updated_at: 2011-01-25 02:41:16 Z
+user_7: 
+  activated_at: 
+  created_at: 2011-01-25 02:41:16 Z
+  crypted_password: 5fccfc3cd5ad2db7b846884717e5683610ea4c8e0f8763a175157f30cf0644205e14f22c9cb07aa5cb3676d6b43a4df41032419f3bf2f0cf125a129b61fc621c
+  email: blair@ao3.org
+  id: 7
+  login: blair
+  persistence_token: 7e99a43e398b0bae522062a393705a4be47ef12e4b7107a108a82e0ea2b0e53cfb2b6c9a93c167cebf551786ce62494de23209e3aa4bff53e2c61ce4c689e43e
+  salt: wFQMwKi3bg0Ae12SCAeo
+  support_identity_id: 3
+  updated_at: 2011-01-25 02:41:16 Z
+user_8: 
+  activated_at: 
+  created_at: 2011-01-25 02:41:16 Z
+  crypted_password: 1beee752a103e9f63549cc92c7a2c98d665cda41dbbc35761063ef32d3d4fabf4c871732e406c75ee6b304c6b0f270b37b61adbf7b022b2676c8af3e3705ca92
+  email: sidra@ao3.org
+  id: 8
+  login: sidra
+  persistence_token: 5a6e8d2ff11a4ce66e18819b6eb7598da98f0a4584e7b8bc578ff2026833fb9ba359b5c26198b45063442d64f04adc1e470426f00859e1edc7d0bf79b96f0fdd
+  salt: -cdnJFemjMy9iVq-idAL
+  support_identity_id: 4
+  updated_at: 2011-01-25 02:41:16 Z
